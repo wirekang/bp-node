@@ -1,0 +1,35 @@
+{
+  "name": "bp-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/wirekang/bp-node",
+  "author": "wirekang <wirekang@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.3.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "mocha": "^8.3.0",
+    "nodemon": "^2.0.7",
+    "ts-loader": "^8.0.17",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0"
+  },
+  "scripts": {
+    "dev": "NODE_PATH=./src nodemon --watch src --delay 2 --exec node -r ts-node/register src/index.ts",
+    "test": "NODE_PATH=./src env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'src/test/**/*.test.ts'",
+    "build": "yarn test && NODE_ENV=production webpack --mode production"
+  }
+}
